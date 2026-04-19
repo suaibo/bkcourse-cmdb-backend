@@ -32,6 +32,8 @@
 
 ### 2、配置环境变量
 
+<font color=red size=6>可以直接修改项目目录下的test.env文件，将其中的APP_ID、APP_TOKEN、APP_SECRET更改为你自己的值</font>
+
 ```python
 DJANGO_SETTINGS_MODULE=settings
 APP_ID=替换为你的应用ID
@@ -113,6 +115,9 @@ ipconfig /flushdns
 ![img](https://ctenet-1306582193.cos.ap-nanjing.myqcloud.com/1-20240422102413786.png)
 
 命令如下（建议通过IDE中的启动配置来启动）
+<font color=red size=6>在IDE中添加Django启动配置，并安装EnvFile插件</font>
+![image-20240430092835720](https://ctenet-1306582193.cos.ap-nanjing.myqcloud.com/image-20240430092835720.png)
+![img](https://ctenet-1306582193.cos.ap-nanjing.myqcloud.com/1-20240430092754278.png)
 
 ```python
 python manage.py runserver {{你的host}}

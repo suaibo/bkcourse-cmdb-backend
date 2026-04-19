@@ -39,6 +39,7 @@ def contact(request):
     return render(request, "home_application/contact.html")
 
 
+# 开发样例，在这里实现了【查询业务列表接口】
 def get_bizs_list(request):
     """
     获取业务列表
@@ -63,33 +64,19 @@ def get_bizs_list(request):
     return JsonResponse(result)
 
 
+# 请仿照此前的接口，实现查询集群列表接口
 def get_sets_list(request):
     """
     根据业务ID，查询业务下的集群列表
     """
-    client = get_client_by_request(request)
-    # 请求参数
-    kwargs = {
-        "bk_biz_id": request.GET.get('bk_biz_id'),  # 从request.GET中获取传递的查询参数
-        "fields": ["bk_set_id", "bk_set_name", "bk_biz_id", "bk_created_at", "bk_supplier_account"],
-    }
-    result = client.cc.search_set(kwargs)
-    return JsonResponse(result)
+    pass  # 请实现你的接口
 
 
 def get_modules_list(request):
     """
     根据业务ID和集群ID，查询对应下辖的模块列表
     """
-    client = get_client_by_request(request)
-    # 构造请求参数
-    kwargs = {
-        "bk_biz_id": request.GET.get('bk_biz_id'),
-        "bk_set_id": request.GET.get("bk_set_id"),
-        "fields": ["bk_module_id", "bk_module_name", "bk_set_id", "bk_biz_id", "bk_created_at", "bk_supplier_account"],
-    }
-    result = client.cc.search_module(kwargs)
-    return JsonResponse(result)
+    pass  # 请实现你的接口
 
 
 def get_hosts_list(request):
@@ -97,64 +84,11 @@ def get_hosts_list(request):
     根据传递的查询条件，包括但不限于（业务ID、集群ID、模块ID、主机ID、主机维护人）
     查询主机列表
     """
-    client = get_client_by_request(request)
-    # 构造请求参数
-    kwargs = {
-        "bk_biz_id": request.GET.get("bk_biz_id"),
-        # TODO 待优化项：学有余力的同学可尝试实现分页
-        "page": {
-            "start": 0,
-            "limit": 100,
-        },
-        "fields": [
-            "bk_host_id",  # 主机ID
-            "bk_cloud_id",  # 云区域ID
-            "bk_host_innerip",  # 主机内网IP
-            "bk_os_type",  # 操作系统类型
-            "bk_mac",  # 主机MAC地址
-            "operator",  # 操作人
-            "bk_bak_operator"  # 备份维护人
-        ]
-    }
-
-    # 添加可选参数，包括但不限于主机ID、集群ID、模块ID...
-    if request.GET.get("bk_set_id"):
-        # kwargs["bk_set_id"] = request.GET.get("bk_set_id")    // 错误写法，注意数据结构数据结构与接口文档保持一致
-        kwargs["bk_set_ids"] = [int(request.GET.get("bk_set_id"))]  # 注意这里的数据结构，仔细阅读接口文档
-
-    if request.GET.get("bk_module_id"):
-        # kwargs["bk_set_id"] = request.GET.get("bk_set_id")    // 错误写法，注意数据结构数据结构与接口文档保持一致
-        kwargs["bk_module_ids"] = [int(request.GET.get("bk_module_id"))]  # 注意这里的数据结构，仔细阅读接口文档
-
-    rules = []  # 额外查询参数，配置查询规则
-    if request.GET.get("operator"):
-        rules.append({
-            "field": "operator",
-            "operator": "equal",
-            "value": request.GET.get("operator")
-        })
-
-    # TODO：添加额外查询参数
-
-    if rules:
-        kwargs["host_property_filter"] = {
-            "condition": "AND",
-            "rules": rules
-        }
-
-    result = client.cc.list_biz_hosts(kwargs)
-    return JsonResponse(result)
+    pass  # 请实现你的接口
 
 
 def get_host_detail(request):
     """
     根据主机ID，查询主机详情信息
     """
-    client = get_client_by_request(request)
-
-    kwargs = {
-        "bk_host_id": request.GET.get("bk_host_id")
-    }
-
-    result = client.cc.get_host_base_info(kwargs)
-    return JsonResponse(result)
+    pass  # 请实现你的接口
