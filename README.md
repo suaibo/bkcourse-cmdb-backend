@@ -79,8 +79,6 @@ BK_JOB_HOST=https://job.ce.bktencent.com
   python manage.py migrate
   ```
 
-  
-
 ### 4、更改host
 
 ```python
@@ -95,7 +93,7 @@ BK_JOB_HOST=https://job.ce.bktencent.com
 127.0.0.1 dev.ce.bktencent.com
 4、完成修改后，保存并关闭 hosts 文件。
 
-5、为使更改生效，可能需要清除DNS缓存。按下 Win + R 键，输入 cmd 并按下 Enter 键打开命令提示符。在命令提示符中输入以下命令并执行 
+5、为使更改生效，可能需要清除DNS缓存。按下 Win + R 键，输入 cmd 并按下 Enter 键打开命令提示符。在命令提示符中输入以下命令并执行
 ipconfig /flushdns
 现在，已成功修改了 Windows 下的 etc/hosts 配置。
 ```
@@ -178,4 +176,4 @@ def get_bizs_list(request):
 
 ![image-20240416172705462](https://ctenet-1306582193.cos.ap-nanjing.myqcloud.com/image-20240416172705462.png)
 
-## 
+##
