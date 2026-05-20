@@ -11,12 +11,8 @@ an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express o
 specific language governing permissions and limitations under the License.
 """
 from config import RUN_VER
-from config.database import get_database_config, prepare_database_environment
-from blueapps.conf.validators import EnvValidator
-
-prepare_database_environment()
-
 from config.default import FRONTEND_BACKEND_SEPARATION
+from blueapps.conf.validators import EnvValidator
 
 import pymysql
 pymysql.install_as_MySQLdb()
@@ -65,5 +61,3 @@ try:
     from local_settings import *  # noqa
 except ImportError:
     pass
-
-DATABASES = get_database_config(globals(), DATABASES)
