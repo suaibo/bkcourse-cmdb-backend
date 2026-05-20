@@ -12,6 +12,9 @@ specific language governing permissions and limitations under the License.
 """
 
 from config import RUN_VER
+from config.database import get_database_config, prepare_database_environment
+
+prepare_database_environment()
 
 if RUN_VER == "open":
     from blueapps.patch.settings_open_saas import *  # noqa
@@ -41,3 +44,4 @@ RUN_MODE = "PRODUCT"
 #     }
 # )
 
+DATABASES = get_database_config(globals(), DATABASES)

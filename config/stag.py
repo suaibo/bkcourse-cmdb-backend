@@ -11,6 +11,10 @@ an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express o
 specific language governing permissions and limitations under the License.
 """
 from config import RUN_VER
+from config.database import get_database_config, prepare_database_environment
+
+prepare_database_environment()
+
 from config.default import FRONTEND_BACKEND_SEPARATION
 
 if RUN_VER == "open":
@@ -49,3 +53,4 @@ if FRONTEND_BACKEND_SEPARATION:
 #     }
 # )
 
+DATABASES = get_database_config(globals(), DATABASES)
