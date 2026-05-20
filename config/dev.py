@@ -45,19 +45,7 @@ BROKER_URL = "redis://localhost:6379/0"
 
 DEBUG = True
 
-# 本地开发数据库设置
-# USE FOLLOWING SQL TO CREATE THE DATABASE NAMED APP_CODE
-# SQL: CREATE DATABASE `framework_py` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci; # noqa: E501
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.mysql",
-        "NAME": "lesson11",  # noqa
-        "USER": "root",
-        "PASSWORD": "huan0912",
-        "HOST": "localhost",
-        "PORT": "3306",
-    },
-}
+# 本地开发数据库设置放在项目根目录 local_settings.py 中，并通过 .gitignore 忽略。
 
 # 前后端开发模式下支持跨域配置
 if FRONTEND_BACKEND_SEPARATION:
